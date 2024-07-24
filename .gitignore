@@ -1,0 +1,4 @@
+backend/node_modules/
+Dscript/node_modules/
+Dscript/.env/
+backend/.env/
