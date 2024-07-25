@@ -1,0 +1,14 @@
+{
+  "patientId": 1,
+  "doctorDetails": {
+    "name": "Dr. John Doe",
+    "chamber": "XYZ Clinic",
+    "address": "123 Main St",
+    "mobile": "0XXXXXXXXX",
+    "room": "101"
+  },
+  "symptoms": "isjdvosnv",
+  "tests": "oifjoidfn",
+  "advice": "vkmdfkjnvdf",
+  "diagnosis": "jkdckjvdj"
+}
