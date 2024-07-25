@@ -10,7 +10,7 @@ body {
 .doctor-dashboard {
   display: flex;
   height: 100vh;
-  overflow: hidden; /* Prevents scrolling beyond the viewport */
+  flex-direction: row; /* Default layout for larger screens */
 }
 
 /* Button for toggling the menu */
@@ -18,7 +18,7 @@ body {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 12px 24px;
+  padding: 1rem;
   font-size: 18px;
   cursor: pointer;
   border-radius: 8px;
@@ -53,22 +53,24 @@ body {
   left: 0; /* Show menu when open */
 }
 
+/* Appointment Card */
 .appointment-card {
-  background-color: #495057;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px;
   padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: background-color 0.3s ease;
+  position: relative;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .appointment-card:hover {
-  background-color: #6c757d;
+  background-color: #e9ecef;
 }
 
 .appointment-card p {
   margin: 0;
-  color: #adb5bd;
+  color: #6c757d;
 }
 
 .appointment-card button {
@@ -92,11 +94,11 @@ body {
   margin-left: 300px; /* Adjust to account for sliding menu width */
   flex: 1;
   display: flex;
-  flex-direction: row;
   gap: 20px;
   padding: 20px;
   overflow: hidden; /* Prevents scrolling beyond the viewport */
   height: calc(100vh - 40px); /* Adjust for potential header height */
+  flex-direction: row;
 }
 
 /* Prescription Section */
@@ -186,6 +188,27 @@ table.prescription td {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  position: relative; /* Ensure proper positioning */
+}
+
+/* Move chatbot to the left slider on small screens */
+.chatbot-slider {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hidden */
+  width: 300px;
+  height: 100%;
+  background-color: #343a40;
+  color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  padding: 20px;
+  overflow-y: auto; /* Scroll if content overflows */
+  z-index: 1001; /* Ensure the slider is above other content */
+}
+
+.chatbot-slider.open {
+  left: 0; /* Show slider when open */
 }
 
 .chat-box {
@@ -251,6 +274,7 @@ table.prescription td {
   background-color: #f8f9fa;
   border-radius: 8px;
 }
+
 .inputs {
   width: 100%; /* Full width of the container */
   height: 100px; /* Adjust height as needed */
@@ -261,7 +285,7 @@ table.prescription td {
   border-radius: 4px; /* Optional: Round corners */
 }
 
-#add_med{
+#add_med {
   width: 100%; /* Full width of the container */
   height: 500px; /* Adjust height as needed */
   font-size: 1.2em; /* Adjust font size as needed */
@@ -269,10 +293,7 @@ table.prescription td {
   box-sizing: border-box; /* Include padding in the width/height calculation */
   border: 1px solid #ccc; /* Optional: Add border for better visibility */
   border-radius: 4px; /* Optional: Round corners */
-
 }
-
-
 
 /* Style for the appointment cards */
 .appointment-card {
@@ -289,4 +310,59 @@ table.prescription td {
 .appointment-card.fade-out {
   opacity: 0;
   transform: translateX(-100%);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .doctor-dashboard {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove margin on smaller screens */
+    padding: 10px;
+  }
+
+  .chatbot-container {
+    display: none; /* Hide the right-side chatbot container */
+  }
+
+  .chatbot-slider {
+    display: block; /* Show the left-side chatbot slider */
+  }
+}
+
+@media (max-width: 576px) {
+  .toggle-button {
+    font-size: 16px; /* Reduce font size on smaller screens */
+    padding: 0.75rem;
+  }
+
+  .sliding-menu {
+    width: 200px; /* Further adjust width for very small screens */
+  }
+
+  .chat-box {
+    height: 200px; /* Reduce height of chat box */
+  }
+
+  .inputs, #add_med {
+    height: 80px; /* Adjust height for smaller screens */
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .prescription-section, .prescription-section * {
+    visibility: visible;
+  }
+  .prescription-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white; /* Ensure white background for print */
+  }
 }
