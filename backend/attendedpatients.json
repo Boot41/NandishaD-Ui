@@ -812,5 +812,22 @@
     "abhaCardDetails": "ABHA5678901234",
     "confirmationMethod": "Email",
     "id": 6
+  },
+  {
+    "fullName": "Grace Clark",
+    "phoneNumber": "789-012-3456",
+    "email": "grace.clark@example.com",
+    "dateOfBirth": "1992-06-05",
+    "appointmentDate": "2024-08-07",
+    "appointmentTime": "16:00",
+    "reasonForVisit": "Nutrition Consultation",
+    "preferredDoctor": "Dr. Adams",
+    "appointmentType": "in-person",
+    "insuranceDetails": "Wellness - Policy 78901",
+    "emergencyContact": "Michael Clark - 987-012-3456",
+    "specialRequests": "Requires dietary restrictions information",
+    "abhaCardDetails": "ABHA6789012345",
+    "confirmationMethod": "SMS",
+    "id": 7
   }
 ]

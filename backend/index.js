@@ -59,15 +59,35 @@ app.post('/attend-patient', async (req, res) => {
 // Endpoint to save appointment
 app.post('/save-appointment', async (req, res) => {
   const newAppointment = req.body;
+  console.log(newAppointment);
 
   try {
     // Read existing appointments
-    const data = await fs.readFile(reportsFilePath, 'utf8');
-    let reports = JSON.parse(data);
+    let reports = [];
+    try {
+      const data = await fs.readFile(reportsFilePath, 'utf8');
+      // Check if data is empty or invalid
+      if (data.trim().length > 0) {
+        reports = JSON.parse(data);
+      }
+    } catch (readError) {
+      // Handle file read error or JSON parse error
+      if (readError.code === 'ENOENT') {
+        // File does not exist, start with an empty array
+        reports = [];
+      } else {
+        // If JSON parsing fails, treat it as an empty file
+        if (readError instanceof SyntaxError) {
+          reports = [];
+        } else {
+          throw readError; // Re-throw unexpected errors
+        }
+      }
+    }
 
     // Add new appointment with a new ID
-    newreport.id = reports.length ? Math.max(reports.map(app => app.id)) + 1 : 1;
-    reports.push(newreport);
+    newAppointment.id = reports.length ? Math.max(reports.map(app => app.id)) + 1 : 1;
+    reports.push(newAppointment);
 
     // Write updated appointments back to the file
     await fs.writeFile(reportsFilePath, JSON.stringify(reports, null, 2));
