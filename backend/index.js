@@ -39,6 +39,22 @@ app.post('/save-appointment', (req, res) => {
   });
 });
 
+
+app.post('/save-report', (req, res) => {
+  const report = req.body;
+  const filePath = path.join(__dirname, 'reports.json');
+
+  fs.writeFile(filePath, JSON.stringify(report, null, 2), (err) => {
+    if (err) {
+      console.error('Error saving report:', err);
+      return res.status(500).send('Error saving report');
+    }
+    res.send('Report saved successfully');
+  });
+});
+
+
+
 // Endpoint to get appointments
 app.get('/appointments', (req, res) => {
   const filePath = path.join(__dirname, 'info.json');
