@@ -75,7 +75,6 @@ const SlidingMenu = () => {
         ))}
       </div>
 
-      {/* Main Content */}
       <div className="main-content">
         {/* Prescription Section */}
         <div className="prescription-section">
@@ -99,7 +98,7 @@ const SlidingMenu = () => {
                   <label>Diagnosis:</label>
                   <textarea placeholder="Enter diagnosis here"></textarea>
                 </div>
-                {/* Add more fields as needed */}
+                
               </div>
             </>
           ) : (
