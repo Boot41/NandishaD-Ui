@@ -61,14 +61,22 @@ const SlidingMenu = () => {
         room: '101' // Update with actual room number
       }));
   
-      // Handle card animation and removal
-      const cardElement = document.querySelector(`.appointment-card[data-id="${id}"]`);
-      if (cardElement) {
-        cardElement.classList.add('fade-out');
-        setTimeout(() => {
-          setAppointments(prevAppointments => prevAppointments.filter(appointment => appointment.id !== id));
-        }, 300); // Match the transition duration
-      }
+      // Send the patient data to be added to attendedpatients.json
+      axios.post('http://localhost:5000/attend-patient', { patient })
+        .then(response => {
+          // Handle successful response, remove card from the UI
+          const cardElement = document.querySelector(`.appointment-card[data-id="${id}"]`);
+          if (cardElement) {
+            cardElement.classList.add('fade-out');
+            setTimeout(() => {
+              setAppointments(prevAppointments => prevAppointments.filter(appointment => appointment.id !== id));
+            }, 300); // Match the transition duration
+          }
+        })
+        .catch(error => {
+          console.error('Error sending patient to attended list:', error);
+          alert('Failed to allow patient. Please try again.');
+        });
     }
   };
 
@@ -94,6 +102,8 @@ const SlidingMenu = () => {
     if (selectedPatient) {
       const data = {
         patientId: selectedPatient.id,
+        patientname: selectedPatient.fullName,
+        patientphoneNumber: selectedPatient.phoneNumber,
         doctorDetails,
         symptoms,
         tests,
@@ -172,7 +182,8 @@ const SlidingMenu = () => {
                             className='inputs'
                             value={symptoms}
                             onChange={(e) => setSymptoms(e.target.value)}
-                            placeholder="Enter symptoms here"
+                            placeholder=""
+                            required
                           />
                         </div>
                         <div className="tests">
@@ -215,6 +226,7 @@ const SlidingMenu = () => {
               </table>
               <div className="button_group">
                 <button className="issue_prescription btn btn-success" onClick={handleSave}>Save</button>
+               
               </div>
             </div>
           </div>

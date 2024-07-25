@@ -1,5 +1,5 @@
 {
-  "patientId": 1,
+  "patientId": 4,
   "doctorDetails": {
     "name": "Dr. John Doe",
     "chamber": "XYZ Clinic",
@@ -7,8 +7,8 @@
     "mobile": "0XXXXXXXXX",
     "room": "101"
   },
-  "symptoms": "isjdvosnv",
-  "tests": "oifjoidfn",
-  "advice": "vkmdfkjnvdf",
-  "diagnosis": "jkdckjvdj"
+  "symptoms": "c",
+  "tests": "jhbsdjhcbsdhjbds",
+  "advice": "s",
+  "diagnosis": "skjcbsdbcdsbhdv"
 }
