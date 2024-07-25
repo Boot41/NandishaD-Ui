@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import '../css_files/doctor.css';
 
-const SlidingMenu = () => {
+const DoctorDash = () => {
   const [appointments, setAppointments] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
@@ -298,4 +298,4 @@ const SlidingMenu = () => {
   );
 };
 
-export default SlidingMenu;
+export default DoctorDash;

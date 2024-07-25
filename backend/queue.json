@@ -1,22 +1,5 @@
 [
   {
-    "fullName": "Grace Clark",
-    "phoneNumber": "789-012-3456",
-    "email": "grace.clark@example.com",
-    "dateOfBirth": "1992-06-05",
-    "appointmentDate": "2024-08-07",
-    "appointmentTime": "16:00",
-    "reasonForVisit": "Nutrition Consultation",
-    "preferredDoctor": "Dr. Adams",
-    "appointmentType": "in-person",
-    "insuranceDetails": "Wellness - Policy 78901",
-    "emergencyContact": "Michael Clark - 987-012-3456",
-    "specialRequests": "Requires dietary restrictions information",
-    "abhaCardDetails": "ABHA6789012345",
-    "confirmationMethod": "SMS",
-    "id": 7
-  },
-  {
     "fullName": "Henry Young",
     "phoneNumber": "890-123-4567",
     "email": "henry.young@example.com",
@@ -100,5 +83,22 @@
     "abhaCardDetails": "ABHA1234567890",
     "confirmationMethod": "Email",
     "id": 12
+  },
+  {
+    "patientId": 7,
+    "patientname": "Grace Clark",
+    "patientphoneNumber": "789-012-3456",
+    "doctorDetails": {
+      "name": "Dr. John Doe",
+      "chamber": "XYZ Clinic",
+      "address": "123 Main St",
+      "mobile": "0XXXXXXXXX",
+      "room": "101"
+    },
+    "symptoms": "",
+    "tests": "",
+    "advice": "",
+    "diagnosis": "",
+    "id": null
   }
 ]

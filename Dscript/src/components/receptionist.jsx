@@ -4,20 +4,20 @@ import '../css_files/receptionist.css'
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
-    fullName: 'John Doe',
-    phoneNumber: '123-456-7890',
-    email: 'johndoe@example.com',
-    dateOfBirth: '1985-01-01',
-    appointmentDate: '2024-08-01',
-    appointmentTime: '10:00',
-    reasonForVisit: 'Routine Checkup',
-    preferredDoctor: 'Dr. Smith',
-    appointmentType: 'in-person',
-    insuranceDetails: 'Health Insurance Co. - Policy 12345',
-    emergencyContact: 'Jane Doe - 098-765-4321',
-    specialRequests: 'N/A',
-    abhaCardDetails: 'ABHA1234567890',
-    confirmationMethod: 'SMS',
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    dateOfBirth: '',
+    appointmentDate: '',
+    appointmentTime: '',
+    reasonForVisit: '',
+    preferredDoctor: '',
+    appointmentType: '',
+    insuranceDetails: '',
+    emergencyContact: '',
+    specialRequests: '',
+    abhaCardDetails: '',
+    confirmationMethod: '',
   });
 
   const handleChange = (e) => {
