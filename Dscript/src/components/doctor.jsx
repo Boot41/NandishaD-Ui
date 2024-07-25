@@ -30,6 +30,23 @@ const SlidingMenu = () => {
   // Toggle menu open/closed
   const handleToggleMenu = () => setIsMenuOpen(prevState => !prevState);
 
+  
+  const handlePrint = () => {
+    const printContent = document.querySelector('.prescription-section').innerHTML;
+    const originalContent = document.body.innerHTML;
+  
+    const newWindow = window.open('', '', 'height=700,width=900');
+    newWindow.document.write('<html><head><title>Print Prescription</title>');
+    newWindow.document.write('<style>/* Include your CSS styles here */</style>');
+    newWindow.document.write('</head><body>');
+    newWindow.document.write(printContent);
+    newWindow.document.write('</body></html>');
+  
+    newWindow.document.close();
+    newWindow.print();
+    newWindow.close();
+  };
+
   // Handle click outside of the menu
   const handleOutsideClick = useCallback((e) => {
     if (isMenuOpen && !e.target.closest('.sliding-menu') && !e.target.closest('.toggle-button')) {
@@ -169,42 +186,55 @@ const SlidingMenu = () => {
                   </tr>
                   <tr>
                     <td width="40%">
-                      <div className="desease_details">
-                        <div className="patient-details">
-                          <h4 className="d-header">Patient Details</h4>
-                          <p><strong>Name:</strong> {selectedPatient.fullName}</p>
-                          <p><strong>Age:</strong> {selectedPatient.age}</p>
-                          <p><strong>Appointment Date:</strong> {selectedPatient.appointmentDate}</p>
-                        </div>
-                        <div className="symptoms">
-                          <h4 className="d-header">Symptoms</h4>
-                          <textarea
-                            className='inputs'
-                            value={symptoms}
-                            onChange={(e) => setSymptoms(e.target.value)}
-                            placeholder=""
-                            required
-                          />
-                        </div>
-                        <div className="tests">
-                          <h4 className="d-header">Tests</h4>
-                          <textarea
-                            className='inputs'
-                            value={tests}
-                            onChange={(e) => setTests(e.target.value)}
-                            placeholder="Enter tests here"
-                          />
-                        </div>
-                        <div className="advice">
-                          <h4 className="d-header">Advice</h4>
-                          <textarea
-                            className='inputs'
-                            value={advice}
-                            onChange={(e) => setAdvice(e.target.value)}
-                            placeholder="Enter advice here"
-                          />
-                        </div>
-                      </div>
+                    <div className="desease_details">
+  <div className="patient-details">
+    <h4 className="d-header">Patient Details</h4>
+    <p><strong>Name:</strong> {selectedPatient.fullName}</p>
+    <p><strong>Age:</strong> {selectedPatient.age}</p>
+    <p><strong>Appointment Date:</strong> {selectedPatient.appointmentDate}</p>
+  </div>
+  <div className="symptoms">
+    <h4 className="d-header">Symptoms</h4>
+    <textarea
+      className="inputs"
+      value={symptoms}
+      onChange={(e) => {
+        setSymptoms(e.target.value);
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      placeholder=""
+      required
+    />
+  </div>
+  <div className="tests">
+    <h4 className="d-header">Tests</h4>
+    <textarea
+      className="inputs"
+      value={tests}
+      onChange={(e) => {
+        setTests(e.target.value);
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      placeholder=""
+    />
+  </div>
+  <div className="advice">
+    <h4 className="d-header">Advice</h4>
+    <textarea
+      className="inputs"
+      value={advice}
+      onChange={(e) => {
+        setAdvice(e.target.value);
+        e.target.style.height = "auto";
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      placeholder=""
+    />
+  </div>
+</div>
+
                     </td>
                     <td width="60%" valign="top">
                       <span style={{ fontSize: '3em' }}>R<sub>x</sub></span>
@@ -216,7 +246,7 @@ const SlidingMenu = () => {
                             id="add_med"
                             value={diagnosis}
                             onChange={(e) => setDiagnosis(e.target.value)}
-                            placeholder="Enter diagnosis here"
+                            placeholder=""
                           />
                         </section>
                       </div>
@@ -226,6 +256,8 @@ const SlidingMenu = () => {
               </table>
               <div className="button_group">
                 <button className="issue_prescription btn btn-success" onClick={handleSave}>Save</button>
+                {/* <button className="btn btn-info" onClick={handleShare}>Share</button> */}
+                <button className="issue_prescription btn btn-success" onClick={handlePrint}>Print</button> 
                
               </div>
             </div>

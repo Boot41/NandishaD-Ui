@@ -1,5 +1,22 @@
 [
   {
+    "fullName": "Grace Clark",
+    "phoneNumber": "789-012-3456",
+    "email": "grace.clark@example.com",
+    "dateOfBirth": "1992-06-05",
+    "appointmentDate": "2024-08-07",
+    "appointmentTime": "16:00",
+    "reasonForVisit": "Nutrition Consultation",
+    "preferredDoctor": "Dr. Adams",
+    "appointmentType": "in-person",
+    "insuranceDetails": "Wellness - Policy 78901",
+    "emergencyContact": "Michael Clark - 987-012-3456",
+    "specialRequests": "Requires dietary restrictions information",
+    "abhaCardDetails": "ABHA6789012345",
+    "confirmationMethod": "SMS",
+    "id": 7
+  },
+  {
     "fullName": "Henry Young",
     "phoneNumber": "890-123-4567",
     "email": "henry.young@example.com",
@@ -83,99 +100,5 @@
     "abhaCardDetails": "ABHA1234567890",
     "confirmationMethod": "Email",
     "id": 12
-  },
-  {
-    "patientId": 4,
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "fdfdv",
-    "tests": "fdvfd",
-    "advice": "dffdv",
-    "diagnosis": "fvfvvfvf",
-    "id": null
-  },
-  {
-    "patientId": 5,
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "ddvfvfd",
-    "tests": "fdvfdvfdv",
-    "advice": "fdvffvdvf",
-    "diagnosis": "fdfdvfdfvdfv",
-    "id": null
-  },
-  {
-    "patientId": 6,
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "jhbdc",
-    "tests": "jhsd",
-    "advice": "jhbsd",
-    "diagnosis": "sdjhbsd",
-    "id": null
-  },
-  {
-    "patientId": 6,
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "jhbdc",
-    "tests": "jhsd",
-    "advice": "jhbsd",
-    "diagnosis": "sdjhbsd",
-    "id": null
-  },
-  {
-    "patientId": 6,
-    "patientname": "Frank Harris",
-    "patientphoneNumber": "678-901-2345",
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "jhbdc",
-    "tests": "jhsd",
-    "advice": "jhbsd",
-    "diagnosis": "sdjhbsd",
-    "id": null
-  },
-  {
-    "patientId": 6,
-    "patientname": "Frank Harris",
-    "patientphoneNumber": "678-901-2345",
-    "doctorDetails": {
-      "name": "Dr. John Doe",
-      "chamber": "XYZ Clinic",
-      "address": "123 Main St",
-      "mobile": "0XXXXXXXXX",
-      "room": "101"
-    },
-    "symptoms": "jhbdc",
-    "tests": "jhsd",
-    "advice": "jhbsd",
-    "diagnosis": "sdjhbsd",
-    "id": null
   }
 ]
