@@ -1,18 +1,10 @@
 /* General Styles for Login Component */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  /* background-image: url('../assets//logo2.png') ; */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* backface-visibility; */
-}
 
-.wrapper {
+
+.wrapperCont {
   display: flex;
   justify-content: center;
+  top: 30%;
   align-items: center;
   height: 100vh;
   padding: 20px;
@@ -28,6 +20,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  top: 30%;
 }
 
 h2 {

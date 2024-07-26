@@ -10,7 +10,6 @@ const DoctorDash = () => {
     name: 'Dr. John Doe',
     chamber: 'XYZ Clinic',
     address: '123 Main St',
-    mobile: '0XXXXXXXXX',
     room: '101'
   });
   const [symptoms, setSymptoms] = useState('');
@@ -269,29 +268,36 @@ const DoctorDash = () => {
         )}
       </div>
 
-        {/* Chatbot Section */}
+{/* Chatbot Section */}
         <div className="chatbot-container">
-          <div className="chat-box">
-            {chatHistory.map((message, index) => (
-              <div key={index} className="message">
-                <div className="user-prompt">{message.prompt}</div>
-                <div className="bot-response">{message.response}</div>
-              </div>
-            ))}
-          </div>
-          <div className="input-container">
-            <input
-              className="input-field"
-              type="text"
-              value={prompt}
-              onChange={handleChange}
-              placeholder="Enter Your Prompt"
-            />
-            <div className="savewrapper">
-            <button className="button" onClick={handleSubmit}>Send</button>
-            </div>
-          </div>
+    <div className="chat-box">
+      {chatHistory.map((message, index) => (
+        <div key={index} className="message">
+          <div className="user-prompt">{message.prompt}</div>
+          <div
+            className="bot-response"
+            dangerouslySetInnerHTML={{ __html: message.response }}
+            style={{
+              marginBottom: '15px',
+          lineHeight: '1.8' // Adjust line spacing here
+            }}
+          />
         </div>
+      ))}
+    </div>
+    <div className="input-container">
+      <input
+        className="input-field"
+        type="text"
+        value={prompt}
+        onChange={handleChange}
+        placeholder="Enter Your Prompt"
+      />
+      <div className="savewrapper">
+        <button className="button" onClick={handleSubmit}>Send</button>
+      </div>
+    </div>
+  </div>
       </div>
     </div>
     </div>
