@@ -39,7 +39,7 @@ const LoginComponent = () => {
       }
 
       // Navigate based on user role
-      navigate(authenticatedUser.role === 'doctor' ? '/doctor-dashboard' : '/recep-dashboard');
+      navigate(authenticatedUser.role === 'doctor' ? '/NandishaD-Ui/doctor-dashboard' : '/NandishaD-Ui/recep-dashboard');
     } else {
       alert('Invalid credentials');
     }

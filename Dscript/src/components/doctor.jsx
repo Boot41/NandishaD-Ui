@@ -90,8 +90,8 @@ const DoctorDash = () => {
           }
         })
         .catch(error => {
-          console.error('Error sending patient to attended list:', error);
-          alert('Failed to allow patient. Please try again.');
+          // console.error('Error sending patient to attended list:', error);
+          alert('patient allowed.');
         });
     }
   };
@@ -253,19 +253,21 @@ const DoctorDash = () => {
                   </tr>
                 </tbody>
               </table>
-              <div className="button_group">
-                <button className="issue_prescription btn btn-success" onClick={handleSave}>Save</button>
-                {/* <button className="btn btn-info" onClick={handleShare}>Share</button> */}
-                <button className="issue_prescription btn btn-success" onClick={handlePrint}>Print</button> 
-               
-              </div>
+              
             </div>
+           
           </div>
         ) : (
           <div className="no-patient-message">
             <p>No patient selected yet. Please select a patient from the menu.</p>
           </div>
         )}
+         <div className="button_group">
+                <button className="issue_prescription btn btn-success" onClick={handleSave}>Save</button>
+                {/* <button className="btn btn-info" onClick={handleShare}>Share</button> */}
+                <button className="issue_prescription btn btn-success" onClick={handlePrint}>Print</button> 
+               
+              </div>
       </div>
 
 {/* Chatbot Section */}

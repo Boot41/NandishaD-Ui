@@ -4,6 +4,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
+  
 }
 
 .btn-success{
@@ -22,7 +23,7 @@ body {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 18px;
   cursor: pointer;
   border-radius: 8px;
@@ -30,10 +31,12 @@ body {
   z-index: 999999; /* Ensure the button is above other elements */
   float: right;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  right: 5%;
 }
 
 .toggle-button:hover {
-  background-color: #0056b3;
+  background-color: #0ee70b;
   transform: scale(1.05);
 }
 
@@ -55,6 +58,71 @@ body {
 
 .sliding-menu.open {
   left: 0; /* Show menu when open */
+}
+@media (max-width: 768px) {
+  .sliding-menu {
+    width: 100%; /* Full width on mobile */
+    height: 80%; /* Auto height */
+    top: auto; /* Reset top position */
+    bottom: -200%; /* Hide menu initially off the screen */
+    left: 0; /* Align to left edge */
+    transition: bottom 0.3s ease-in-out;
+  }
+
+  .sliding-menu.open {
+    bottom: 0; /* Show menu when open */
+    height: 80%; /* Adjust height if necessary */
+  }
+  .toggle-button {
+    margin-top: 90%;
+    padding: 0.5rem; /* Reduce padding */
+    font-size: 16px; /* Reduce font size */
+    margin: 10px; /* Adjust margin if necessary */
+    position: absolute;
+    right: 5%;
+  }
+  /* Appointment Card */
+.appointment-card {
+  background-color: #ffffff; /* White background for a cleaner look */
+  border: 1px solid #dee2e6; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  margin: 12px; /* Slightly larger margin for spacing */
+  padding: 20px; /* Increased padding for better content spacing */
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.appointment-card:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.appointment-card p {
+  margin: 0;
+  color: #495057; /* Darker gray for text */
+  font-size: 16px; /* Slightly larger font size for readability */
+}
+
+.appointment-card button {
+  background-color: #007bff; /* Primary color */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 12px 18px; /* Adjusted padding for a better button size */
+  cursor: pointer;
+  border-radius: 6px; /* Slightly larger border radius for button */
+  margin-top: 12px; /* Increased margin for spacing */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.appointment-card button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+
 }
 
 /* Appointment Card */
@@ -112,8 +180,11 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Prevents overflow of content */
+  overflow-y: auto; /* Enables vertical scrolling */
+  max-height: 100%; /* Adjust this height based on your layout needs */
+  box-sizing: border-box; /* Ensures padding is included in the total height */
 }
+
 
 .wrapper {
   display: flex;
@@ -336,24 +407,7 @@ table.prescription td {
   }
 }
 
-@media (max-width: 576px) {
-  .toggle-button {
-    font-size: 16px; /* Reduce font size on smaller screens */
-    padding: 0.75rem;
-  }
 
-  .sliding-menu {
-    width: 200px; /* Further adjust width for very small screens */
-  }
-
-  .chat-box {
-    height: 200px; /* Reduce height of chat box */
-  }
-
-  .inputs, #add_med {
-    height: 80px; /* Adjust height for smaller screens */
-  }
-}
 
 @media print {
   body * {
@@ -370,3 +424,4 @@ table.prescription td {
     background: white; /* Ensure white background for print */
   }
 }
+
