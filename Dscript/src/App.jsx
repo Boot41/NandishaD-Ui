@@ -15,9 +15,9 @@ function App() {
     {/* <LoginComponent/> */}
     <Router>
       <Routes>
-        <Route path="/NandishaD-Ui/" element={<LoginComponent/>} />
-        <Route path="/NandishaD-Ui/doctor-dashboard" element={<DoctorDash/>} />
-        <Route path="/NandishaD-Ui/recep-dashboard" element={<AppointmentForm/>} />
+        <Route path="/" element={<LoginComponent/>} />
+        <Route path="/doctor-dashboard" element={<DoctorDash/>} />
+        <Route path="/recep-dashboard" element={<AppointmentForm/>} />
         {/* <Route path="/"  element={<h1>Hello</h1>} /> */}
       </Routes>
     </Router>
