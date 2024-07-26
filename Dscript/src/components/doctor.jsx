@@ -21,7 +21,7 @@ const DoctorDash = () => {
 
   // Fetch appointments
   useEffect(() => {
-    axios.get('http://localhost:5000/appointments')
+    axios.get('https://backend-dscript-nandishnaik01.onrender.com/appointments')
       .then(response => setAppointments(response.data))
       .catch(error => console.error('Error fetching appointments:', error));
   }, []);
@@ -78,7 +78,7 @@ const DoctorDash = () => {
       }));
   
       // Send the patient data to be added to attendedpatients.json
-      axios.post('http://localhost:5000/attend-patient', { patient })
+      axios.post('https://backend-dscript-nandishnaik01.onrender.com/attend-patient', { patient })
         .then(response => {
           // Handle successful response, remove card from the UI
           const cardElement = document.querySelector(`.appointment-card[data-id="${id}"]`);
@@ -103,7 +103,7 @@ const DoctorDash = () => {
 
   // Handle chat submission
   const handleSubmit = () => {
-    axios.post('http://localhost:5000/chat', { prompt })
+    axios.post('https://backend-dscript-nandishnaik01.onrender.com/chat', { prompt })
       .then(response => {
         const newMessage = { prompt, response: response.data };
         setChatHistory(prevHistory => [...prevHistory, newMessage]);
@@ -126,7 +126,7 @@ const DoctorDash = () => {
         advice,
         diagnosis
       };
-      axios.post('http://localhost:5000/save-report', data)
+      axios.post('https://backend-dscript-nandishnaik01.onrender.com/save-report', data)
         .then(response => {
           console.log('Report saved successfully:', response.data);
           alert('Report saved successfully!');

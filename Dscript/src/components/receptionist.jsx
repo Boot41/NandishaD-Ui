@@ -31,7 +31,7 @@ const AppointmentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:5000/save-appointment', formData)
+    axios.post('https://backend-dscript-nandishnaik01.onrender.com/save-appointment', formData)
       .then(() => {
         alert('Appointment saved successfully');
       })
