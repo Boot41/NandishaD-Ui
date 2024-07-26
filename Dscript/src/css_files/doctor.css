@@ -6,6 +6,10 @@ body {
   color: #333;
 }
 
+.btn-success{
+  margin-top: .5%;
+  margin-right: 5%;
+}
 /* Container for the entire layout */
 .doctor-dashboard {
   display: flex;

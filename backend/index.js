@@ -138,6 +138,37 @@ app.post('/chat', async (req, res) => {
   if (!prompt) return res.status(400).send('Missing prompt in request body');
 
   try {
+    // Check if the prompt is "get patient data"
+    if (prompt === "get patient data") {
+      const mockPrescription = `
+      <div>
+        <h2>Patient Diagnosis History:</h2>
+        <ul>
+          <li>
+            <strong>Headache</strong><br>
+            <strong>Date:</strong> 2024-07-01<br>
+            <strong>Diagnosis:</strong> Headache<br>
+            <strong>Treatment:</strong> Pain relief medication
+          </li>
+          <li>
+            <strong>Broken Leg</strong><br>
+            <strong>Date:</strong> 2024-06-15<br>
+            <strong>Diagnosis:</strong> Fractured femur<br>
+            <strong>Treatment:</strong> Cast and rest
+          </li>
+          <li>
+            <strong>Flu</strong><br>
+            <strong>Date:</strong> 2024-05-20<br>
+            <strong>Diagnosis:</strong> Influenza<br>
+            <strong>Treatment:</strong> Rest, fluids, and antiviral medication
+          </li>
+        </ul>
+      </div>
+    `;
+    return res.send(mockPrescription);
+    }
+
+    // For all other prompts, continue with existing logic
     const chatCompletion = await getGroqChatCompletion(prompt);
     res.send(chatCompletion.choices[0]?.message?.content || '');
   } catch (error) {
@@ -145,6 +176,7 @@ app.post('/chat', async (req, res) => {
     res.status(500).send('Error querying Groq AI');
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

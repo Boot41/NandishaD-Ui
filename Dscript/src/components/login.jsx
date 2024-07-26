@@ -40,7 +40,7 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrapperCont">
       <div className="login-container">
         <h2>Dscript</h2>
         <form onSubmit={handleSubmit} className="login-form">
