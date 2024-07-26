@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css_files/login.css';
 
@@ -8,6 +8,19 @@ const LoginComponent = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Check if there is a logged-in user in localStorage
+    const storedUserId = localStorage.getItem('userId');
+    const storedPassword = localStorage.getItem('password');
+
+    if (storedUserId && storedPassword) {
+      const authenticatedUser = authenticateUser(storedUserId, storedPassword);
+      if (authenticatedUser) {
+        navigate(authenticatedUser.role === 'doctor' ? '/doctor-dashboard' : '/recep-dashboard');
+      }
+    }
+  }, [navigate]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -15,11 +28,18 @@ const LoginComponent = () => {
     const authenticatedUser = authenticateUser(userId, password);
 
     if (authenticatedUser) {
-      if (authenticatedUser.role === 'doctor') {
-        navigate('/doctor-dashboard');
-      } else if (authenticatedUser.role === 'receptionist') {
-        navigate('/recep-dashboard');
+      if (rememberMe) {
+        // Store credentials in localStorage
+        localStorage.setItem('userId', userId);
+        localStorage.setItem('password', password);
+      } else {
+        // Clear credentials from localStorage if rememberMe is unchecked
+        localStorage.removeItem('userId');
+        localStorage.removeItem('password');
       }
+
+      // Navigate based on user role
+      navigate(authenticatedUser.role === 'doctor' ? '/doctor-dashboard' : '/recep-dashboard');
     } else {
       alert('Invalid credentials');
     }
