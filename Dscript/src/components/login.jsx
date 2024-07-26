@@ -16,7 +16,7 @@ const LoginComponent = () => {
     if (storedUserId && storedPassword) {
       const authenticatedUser = authenticateUser(storedUserId, storedPassword);
       if (authenticatedUser) {
-        navigate(authenticatedUser.role === 'doctor' ? '/doctor-dashboard' : '/recep-dashboard');
+        navigate(authenticatedUser.role === 'doctor' ? '/NandishaD-Ui/doctor-dashboard' : '/NandishaD-Ui/recep-dashboard');
       }
     }
   }, [navigate]);
